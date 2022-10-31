@@ -65,7 +65,7 @@ while True:
     if nCollected > maxNCollected and nCollected > 0:
         maxNCollected = nCollected
         model.save(filepathToSave)
-        print(env.gridSize)
+        # print(env.gridSize)
     
     totNCollected += nCollected
     nCollected = 0
@@ -82,4 +82,4 @@ while True:
     if epsilon > minEpsilon:
         epsilon -= epsilonDecayRate
     
-    print('Epoch: ' + str(epoch) + ' Current Best: ' + str(maxNCollected) + ' Epsilon: {:.5f}'.format(epsilon))
+    # print('Epoch: ' + str(epoch) + ' Current Best: ' + str(maxNCollected) + ' Epsilon: {:.5f}'.format(epsilon))

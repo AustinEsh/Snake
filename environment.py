@@ -4,10 +4,10 @@ import pygame as pg
 
 class Environment():
     
-    def __init__(self, waitTime):
+    def __init__(self, waitTime, gridSize = 10, numApples = 10):
         
         # Defining the parameters
-        self.gridSize = 10
+        self.gridSize = gridSize
         self.width = 880
         self.height = 880
         self.nRows = self.gridSize
@@ -17,6 +17,7 @@ class Environment():
         self.negReward = -1.
         self.posReward = 2.
         self.waitTime = waitTime
+        self.numApples = numApples
         self.applePos = []
         
         if self.initSnakeLen > self.nRows / 2:
@@ -30,7 +31,7 @@ class Environment():
             self.snakePos.append((int(self.nRows / 2) + i, int(self.nColumns / 2)))
             self.screenMap[int(self.nRows / 2) + i][int(self.nColumns / 2)] = 0.5
             
-        for i in range(4):
+        for i in range(numApples):
             self.applePos.append(self.placeApple())
         self.drawScreen()
         self.collected = False
@@ -75,7 +76,7 @@ class Environment():
         
         if col:
             self.applePos.append(self.placeApple())
-            print(self.applePos, currentPos)
+            # print(self.applePos, currentPos)
             self.applePos.pop(self.applePos.index(nextPos))
             self.collected = True
 
