@@ -75,6 +75,7 @@ class Environment():
             self.screenMap[self.snakePos[i][0]][self.snakePos[i][1]] = 0.5
         
         if col:
+            # if len(self.snakePos) < 10:
             self.applePos.append(self.placeApple())
             # print(self.applePos, currentPos)
             self.applePos.pop(self.applePos.index(nextPos))
