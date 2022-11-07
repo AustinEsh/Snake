@@ -16,16 +16,6 @@ class Player(object):
             self.image = pygame.image.load(os.path.join(sourceFileDir, 'img/snakeBody1.png'))
             x = 0.3 * game.game_width
             y = 0.3 * game.game_height
-        # if self.color == "blue":
-        #     # self.image = pygame.image.load('img/snakeBody2.png')
-        #     self.image = pygame.image.load(os.path.join(sourceFileDir, 'img/snakeBody2.png'))
-        #     x = 0.3 * game.game_width
-        #     y = 0.7 * game.game_height
-        # if self.color == "purple":
-        #     # self.image = pygame.image.load('img/snakeBody4.png')
-        #     self.image = pygame.image.load(os.path.join(sourceFileDir, 'img/snakeBody4.png'))
-        #     x = 0.7 * game.game_width
-        #     y = 0.7 * game.game_height
         self.x = x - x % 20
         self.y = y - y % 20
         self.position = []  # coordinates of all the parts of the snake

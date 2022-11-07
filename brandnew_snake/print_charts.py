@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import os
-from snake.GAagent import get_stats_as_history
+from GAagent import get_stats_as_history
 
 
 def GA_charts(population_name="standard_population"):

@@ -25,17 +25,10 @@ def run_snake():
 
     snake_green = Player(game, "green", ai="heuristic")
     game.player.append(snake_green)
-    # snake_blu = Player(game, "blue")
-    # game.player.append(snake_blu)
-    # snake_purple = Player(game, "purple", ai="deepSearch", depth=8)
-    # game.player.append(snake_purple)
 
     game.food.append(Food(game))
     sourceFileDir = os.path.dirname(os.path.abspath(__file__))
 
-    # rl_agent = DQNAgent('weights/weights_snake_300.hdf5')
-    # rl_agent = DQNAgent(os.path.join(sourceFileDir, 'weights\weights_snake_300.hdf5'))
-    # snake_blu.set_agent(rl_agent)
     ga_agent = GAAgent(population_name="standard_population", generation=100)
 
     game.game_speed = 0  # parameter: game speed
