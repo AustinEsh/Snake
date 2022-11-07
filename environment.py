@@ -58,6 +58,8 @@ class Environment():
             for j in range(self.nColumns):
                 if self.screenMap[i][j] == 0.5:
                     pg.draw.rect(self.screen, (255, 255, 255), (j*cellWidth + 1, i*cellHeight + 1, cellWidth - 2, cellHeight - 2))
+                elif self.screenMap[i][j] == .75:
+                    pg.draw.rect(self.screen, (255, 255, 0), (j*cellWidth + 1, i*cellHeight + 1, cellWidth - 2, cellHeight - 2))
                 elif self.screenMap[i][j] == 1:
                     pg.draw.rect(self.screen, (255, 0, 0), (j*cellWidth + 1, i*cellHeight + 1, cellWidth - 2, cellHeight - 2))
                     
@@ -71,11 +73,13 @@ class Environment():
         
         self.screenMap = np.zeros((self.nRows, self.nColumns))
         
-        for i in range(len(self.snakePos)):
+        self.screenMap[self.snakePos[0][0]][self.snakePos[0][1]] = 0.75
+        for i in range(1,len(self.snakePos)):
             self.screenMap[self.snakePos[i][0]][self.snakePos[i][1]] = 0.5
         
         if col:
-            self.applePos.append(self.placeApple())
+            if len(self.snakePos) < 10:
+                self.applePos.append(self.placeApple())
             # print(self.applePos, currentPos)
             self.applePos.pop(self.applePos.index(nextPos))
             self.collected = True
@@ -170,7 +174,7 @@ class Environment():
         
         return self.screenMap, reward, gameOver
     
-    def reset(self):
+    def reset(self, Ncollected, maxncollected):
         self.screenMap  = np.zeros((self.nRows, self.nColumns))
         self.snakePos = list()
         

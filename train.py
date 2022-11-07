@@ -36,7 +36,7 @@ maxNCollected = 0
 nCollected = 0.
 totNCollected = 0
 while True:
-    env.reset()
+    env.reset(nCollected, maxNCollected)
     currentState, nextState = resetStates()
     epoch += 1
     gameOver = False
